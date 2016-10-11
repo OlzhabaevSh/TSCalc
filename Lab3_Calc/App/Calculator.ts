@@ -1,6 +1,15 @@
-﻿class CalculatorService implements Calc.ICalculator {
+﻿/**
+ * Калькулятор сервис
+ */
+class CalculatorService implements Calc.ICalculator {
 
-    calculate(operandOne: number, operandTwo: number, operation: Calc.OperationEnum): number {
+    /**
+     * Функция вычисления
+     * @param operation операция (enum)
+     * @param operandOne операнд 1
+     * @param operandTwo операнд 2 (можно не передавать, если операции квадрата и квадратного корня)
+     */
+    calculate(operation: Calc.OperationEnum, operandOne: number, operandTwo?: number): number {
 
         var res: number = 0;
 
