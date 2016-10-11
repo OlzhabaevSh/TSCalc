@@ -3,13 +3,61 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>TypeScript HTML App</title>
+    <title>Labs 3</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="app.js"></script>
 </head>
 <body>
-    <h1>TypeScript HTML App</h1>
+    <h1>Calc app example</h1>
 
-    <div id="content"></div>
+    <div id="content" ng-controller="calcController as calcCtrl" ng-init="calcCtrl.init()">
+        <div class="operation-block">
+            <div>
+                <input type="number" ng-model="calcCtrl.operandOne" />
+                <b>{{calcCtrl.operation}}</b>
+                <input type="number" ng-model="calcCtrl.operandTwo" />
+                <b>=</b>
+                {{calcCtrl.result}}
+            </div>
+            <div>
+                <button ng-click="calcCtrl.calculate(0)">+</button>
+                <button ng-click="calcCtrl.calculate(1)">-</button>
+                <button ng-click="calcCtrl.calculate(2)">*</button>
+                <button ng-click="calcCtrl.calculate(3)">/</button>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="log-block">
+            <p>
+                History
+                <button ng-hide="calcCtrl.isShow" ng-click="calcCtrl.logShow()">open</button>
+                <button ng-show="calcCtrl.isShow" ng-click="calcCtrl.logShow()">close</button>
+                <button ng-click="calcCtrl.getLogs()">download</button>
+                <button ng-click="calcCtrl.clearHistory()">clear</button>
+            </p>
+            <div class="log-collection" ng-class="{open: calcCtrl.isShow}">
+                <ul>
+                    <li ng-repeat="log in calcCtrl.logs">
+                        {{log.operandFirst}}
+                        <b>{{calcCtrl.convertToString(log.operation)}}</b>
+                        {{log.operandSecond}}
+                        =
+                        {{log.result}}
+
+                        <button ng-click="calcCtrl.selectLogItem(log)">Check it</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="App/Core.js"></script>
+    <script src="App/Calculator.js"></script>
+    <script src="App/CalculatorLog.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -1,7 +1,22 @@
 ﻿body {
-    font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
 }
-
 span {
-    font-style: italic;
+  font-style: italic;
+}
+.log-block {
+  border: 1px solid darkblue;
+  background-color: ActiveCaption blue;
+  color: white;
+  width: 350px;
+}
+.log-collection {
+  transition: all ease 300ms;
+  height: 0;
+  overflow-y: scroll;
+  background-color: cyan;
+  color: black;
+}
+.log-collection.open {
+  height: 450px;
 }
