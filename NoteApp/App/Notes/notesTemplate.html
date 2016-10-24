@@ -1,0 +1,37 @@
+﻿<div class="ms-Grid">
+    <div class="ms-Grid-row">
+        <div class="ms-Grid-col ms-u-sm2">
+            <div ng-repeat="note in $ctrl.notes"
+                 class="btn ms-borderColor-themePrimary"
+                 ng-class="{'ms-bgColor-themeDarker ms-fontColor-neutralLight': note.id == $ctrl.noteSelected.id}"
+                 ng-click="$ctrl.select(note)">
+                {{note.title}}
+            </div>
+            <div class="btn ms-bgColor-neutralLighter--hover"
+                 ng-click="$ctrl.create()"
+                 ng-show="$ctrl.mode == 0">
+                +
+            </div>
+
+            <div ng-show="$ctrl.mode == 1" class="border-light ms-borderColor-themeDarker">
+                <p>
+                    <b>Title: </b>
+                    <input ng-model="$ctrl.bufNote.title" />
+                </p>
+
+                <div>
+                    <button ng-click="$ctrl.submit()">submit</button>
+                    <button ng-click="$ctrl.cancel()">cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="ms-Grid-col ms-u-sm6">
+            <div class="container-hide"
+                 ng-class="{'ms-u-slideLeftIn10': $ctrl.mode == 2}">
+                <actions noteid="$ctrl.noteSelected.id"></actions>
+            </div>
+        </div>
+    </div>
+</div>

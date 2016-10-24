@@ -1,0 +1,34 @@
+﻿<div class="border-light ms-borderColor-themePrimary">
+    <p>
+        <b>Title: </b>
+        <input ng-model="$ctrl.page.title" />
+    </p>
+    <p>
+        <b>Text: </b>
+    </p>
+    <textarea ng-model="$ctrl.page.text">
+
+    </textarea>
+
+    <hr />
+
+    <div class="ms-Grid">
+        <div class="ms-Grid-row">
+            <div class="ms-Grid-col ms-u-sm6">
+                <p>Справочник</p>
+                <actions-component></actions-component>
+            </div>
+            <div class="ms-Grid-col ms-u-sm6">
+                <p>Задачи</p>
+                <div ng-repeat="act in $ctrl.page.actions"
+                     class="selectable ms-fontColor-error--hover"
+                     ng-click="$ctrl.remove($index)">
+                    {{act.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+</div>

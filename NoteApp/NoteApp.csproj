@@ -22,6 +22,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Actions\actionsTemplate.html" />
+    <Content Include="App\Notes\actionDetailTemplate.html" />
+    <Content Include="App\Notes\actionsTemplate.html" />
+    <Content Include="App\Notes\notesTemplate.html" />
     <Content Include="Content\fabric.components.css" />
     <Content Include="Content\fabric.components.min.css" />
     <Content Include="Content\fabric.components.rtl.css" />
@@ -30,6 +34,12 @@
     <Content Include="Content\fabric.min.css" />
     <Content Include="Content\fabric.rtl.css" />
     <Content Include="Content\fabric.rtl.min.css" />
+    <Content Include="Content\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
     <Content Include="index.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -38,6 +48,8 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\jquery.fabric.js" />
     <Content Include="Scripts\jquery.fabric.min.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +89,11 @@
     <Content Include="Content\sass\Fabric.Color.Mixins.Output.scss" />
     <Content Include="Content\sass\Fabric.Animations.RTL.Output.scss" />
     <Content Include="Content\sass\Fabric.Animations.Output.scss" />
+    <Content Include="Content\site.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -84,10 +101,18 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App\" />
-  </ItemGroup>
-  <ItemGroup>
+    <TypeScriptCompile Include="App\Actions\actionsComponent.ts" />
+    <TypeScriptCompile Include="App\Actions\actionsModule.ts" />
+    <TypeScriptCompile Include="App\Common\commonModule.ts" />
+    <TypeScriptCompile Include="App\Common\noteService.ts" />
+    <TypeScriptCompile Include="App\Core\noteCore.ts" />
+    <TypeScriptCompile Include="App\index.ts" />
+    <TypeScriptCompile Include="App\Notes\actionDetailComponent.ts" />
+    <TypeScriptCompile Include="App\Notes\actionsComponent.ts" />
+    <TypeScriptCompile Include="App\Notes\notesComponent.ts" />
+    <TypeScriptCompile Include="App\Notes\notesModule.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -127,6 +152,17 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
